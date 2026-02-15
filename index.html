@@ -120,23 +120,12 @@
       text-align: center;
     }
     
-    /* Masonry grid layout */
+    /* Каждая карточка на своем ряду, центрирована, не растянута */
     .services, .portfolio {
-      columns: 3;
-      column-gap: 24px;
-      column-fill: auto;
-    }
-    
-    @media (max-width: 768px) {
-      .services, .portfolio {
-        columns: 2;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .services, .portfolio {
-        columns: 1;
-      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
     }
     
     .card {
@@ -152,9 +141,9 @@
       opacity: 0;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       min-height: 180px;
-      margin-bottom: 24px;
-      break-inside: avoid;
-      page-break-inside: avoid;
+      /* Фиксированная ширина карточки */
+      width: 600px;
+      max-width: 90vw;
     }
     
     .card::after {
@@ -262,6 +251,10 @@
       }
       .logo {
         font-size: 1.3rem;
+      }
+      .card {
+        width: 95vw;
+        padding: 20px;
       }
     }
   </style>
